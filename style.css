@@ -1,0 +1,2931 @@
+/* ==================================================
+   全局变量
+================================================== */
+
+:root {
+
+    --green-dark:
+        #174f31;
+
+    --green:
+        #3e9360;
+
+    --green-mid:
+        #63ad79;
+
+    --green-light:
+        #a6d1af;
+
+    --green-soft:
+        rgba(72, 153, 96, .10);
+
+    --border:
+        rgba(57, 133, 78, .23);
+
+    --text:
+        #364b3c;
+
+    --muted:
+        #718176;
+
+}
+
+
+
+/* ==================================================
+   基础
+================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    font-family:
+        "Microsoft YaHei",
+        "微软雅黑",
+        Arial,
+        sans-serif;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    color:
+        var(--text);
+
+    font-size:
+        18px;
+
+}
+
+
+
+/* ==================================================
+   背景
+================================================== */
+
+.bg {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    background:
+
+        radial-gradient(
+            circle at 12% 5%,
+            rgba(78, 163, 99, .17),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 92% 88%,
+            rgba(89, 168, 109, .15),
+            transparent 31%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f9fcf7 0%,
+            #eff7ec 48%,
+            #deeddf 100%
+        );
+
+}
+
+
+
+/* 静态科技网格 */
+
+.bg::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(55, 136, 78, .042) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(55, 136, 78, .042) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        42px 42px;
+
+}
+
+
+
+/* 水平科技基准线 */
+
+.bg::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    top: 155px;
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(50, 130, 75, .11),
+            transparent
+        );
+
+}
+
+
+
+/* ==================================================
+   页面总体布局
+================================================== */
+
+.page {
+
+    width:
+        calc(100% - 28px);
+
+    max-width:
+        1520px;
+
+    margin:
+        14px auto 28px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        300px minmax(0, 1fr);
+
+    gap:
+        18px;
+
+}
+
+
+
+/* ==================================================
+   左侧个人卡片
+================================================== */
+
+.profile {
+
+    position:
+        sticky;
+
+    top:
+        14px;
+
+    align-self:
+        start;
+
+    min-height:
+        auto;
+
+    padding:
+        24px 24px 20px;
+
+    overflow:
+        hidden;
+
+    text-align:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        18px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, .82),
+            rgba(239, 248, 239, .72)
+        );
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+
+        0 16px 42px
+        rgba(42, 87, 52, .085);
+
+}
+
+
+
+/* ==================================================
+   HUD 四角
+================================================== */
+
+.hud-corner {
+
+    position:
+        absolute;
+
+    width:
+        28px;
+
+    height:
+        28px;
+
+}
+
+
+.hud-tl {
+
+    top:
+        10px;
+
+    left:
+        10px;
+
+    border-top:
+        2px solid
+        var(--green);
+
+    border-left:
+        2px solid
+        var(--green);
+
+}
+
+
+.hud-tr {
+
+    top:
+        10px;
+
+    right:
+        10px;
+
+    border-top:
+        2px solid
+        var(--green);
+
+    border-right:
+        2px solid
+        var(--green);
+
+}
+
+
+.hud-bl {
+
+    bottom:
+        10px;
+
+    left:
+        10px;
+
+    border-bottom:
+        2px solid
+        var(--green);
+
+    border-left:
+        2px solid
+        var(--green);
+
+}
+
+
+.hud-br {
+
+    bottom:
+        10px;
+
+    right:
+        10px;
+
+    border-bottom:
+        2px solid
+        var(--green);
+
+    border-right:
+        2px solid
+        var(--green);
+
+}
+
+
+
+/* ==================================================
+   头像区域
+================================================== */
+
+.avatar-system {
+
+    margin-top:
+        2px;
+
+}
+
+
+.avatar-label {
+
+    margin-bottom:
+        4px;
+
+    font-family:
+        Consolas,
+        "Microsoft YaHei",
+        monospace;
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        1.5px;
+
+    color:
+        #63916f;
+
+}
+
+
+.avatar-wrap {
+
+    width:
+        185px;
+
+    height:
+        185px;
+
+    margin:
+        auto;
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    transition:
+        transform .2s ease-out;
+
+    transform-style:
+        preserve-3d;
+
+}
+
+
+
+/* ==================================================
+   头像
+================================================== */
+
+.avatar {
+
+    position:
+        relative;
+
+    z-index:
+        5;
+
+    width:
+        145px;
+
+    height:
+        145px;
+
+    padding:
+        5px;
+
+    border-radius:
+        50%;
+
+    background:
+        white;
+
+    border:
+        2px solid
+        var(--green-mid);
+
+    box-shadow:
+
+        0 0 0 7px
+        rgba(75, 152, 96, .07),
+
+        0 0 28px
+        rgba(53, 141, 80, .13);
+
+}
+
+
+.avatar img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+    border-radius:
+        50%;
+
+}
+
+
+
+/* ==================================================
+   头像轨道
+================================================== */
+
+.avatar-orbit {
+
+    position:
+        absolute;
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+}
+
+
+.orbit-a {
+
+    width:
+        170px;
+
+    height:
+        170px;
+
+    border:
+
+        1px solid
+        rgba(56, 144, 83, .47);
+
+    border-left-color:
+        transparent;
+
+    border-bottom-color:
+        transparent;
+
+    animation:
+
+        orbitA
+        8s linear infinite;
+
+}
+
+
+.orbit-b {
+
+    width:
+        184px;
+
+    height:
+        184px;
+
+    border:
+
+        1px dashed
+        rgba(56, 144, 83, .31);
+
+    animation:
+
+        orbitB
+        17s linear infinite;
+
+}
+
+
+
+/* 轨道节点 */
+
+.orbit-a span {
+
+    position:
+        absolute;
+
+    width:
+        10px;
+
+    height:
+        10px;
+
+    right:
+        17px;
+
+    top:
+        20px;
+
+    border-radius:
+        50%;
+
+    background:
+        #3e9c5b;
+
+    box-shadow:
+
+        0 0 0 5px
+        rgba(56, 148, 83, .09),
+
+        0 0 13px
+        rgba(45, 142, 72, .48);
+
+}
+
+
+.orbit-b span {
+
+    position:
+        absolute;
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    left:
+        21px;
+
+    bottom:
+        29px;
+
+    border-radius:
+        50%;
+
+    background:
+        #65ae78;
+
+}
+
+
+@keyframes orbitA {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes orbitB {
+
+    to {
+
+        transform:
+            rotate(-360deg);
+
+    }
+
+}
+
+
+
+/* ==================================================
+   头像定位十字线
+================================================== */
+
+.avatar-cross {
+
+    position:
+        absolute;
+
+    z-index:
+        1;
+
+    opacity:
+        .26;
+
+}
+
+
+.cross-x {
+
+    width:
+        185px;
+
+    height:
+        1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--green),
+            transparent
+        );
+
+}
+
+
+.cross-y {
+
+    width:
+        1px;
+
+    height:
+        185px;
+
+    background:
+
+        linear-gradient(
+            transparent,
+            var(--green),
+            transparent
+        );
+
+}
+
+
+
+/* ==================================================
+   头像在线状态
+================================================== */
+
+.avatar-state {
+
+    width:
+        max-content;
+
+    margin:
+        -2px auto 0;
+
+    padding:
+        5px 11px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        1.2px;
+
+    color:
+        #568d64;
+
+    background:
+        rgba(66, 150, 89, .07);
+
+    border:
+        1px solid
+        rgba(66, 150, 89, .15);
+
+}
+
+
+.state-light {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #42a15d;
+
+    animation:
+        statusBlink 1.5s infinite;
+
+}
+
+
+@keyframes statusBlink {
+
+    50% {
+
+        opacity:
+            .4;
+
+        box-shadow:
+
+            0 0 0 6px
+            rgba(68, 156, 91, .08);
+
+    }
+
+}
+
+
+
+/* ==================================================
+   姓名、身份
+================================================== */
+
+.profile h1 {
+
+    margin-top:
+        9px;
+
+    font-size:
+        40px;
+
+    line-height:
+        1.25;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        4px;
+
+    color:
+        #184d30;
+
+}
+
+
+.role {
+
+    margin-top:
+        3px;
+
+    font-size:
+        20px;
+
+    color:
+        #528864;
+
+    letter-spacing:
+        1.3px;
+
+}
+
+
+
+/* ==================================================
+   CS / AI / CAU 标签
+================================================== */
+
+.profile-code {
+
+    margin:
+        11px auto;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+}
+
+
+.profile-code span {
+
+    padding:
+        5px 11px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        13px;
+
+    border:
+        1px solid
+        rgba(57, 139, 78, .18);
+
+    color:
+        #4d8c5e;
+
+    background:
+        rgba(62, 151, 86, .055);
+
+}
+
+
+
+/* ==================================================
+   自我介绍
+================================================== */
+
+.intro {
+
+    margin-top:
+        10px;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.75;
+
+    color:
+        #556b5c;
+
+}
+
+
+
+/* ==================================================
+   联系方式
+================================================== */
+
+.contact {
+
+    margin-top:
+        16px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+    text-align:
+        left;
+
+}
+
+
+.contact-item {
+
+    padding:
+        8px 11px;
+
+    min-height:
+        52px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    position:
+        relative;
+
+    border-left:
+        2px solid
+        transparent;
+
+    background:
+        rgba(255, 255, 255, .34);
+
+    transition:
+        .28s ease;
+
+}
+
+
+.contact-item:hover {
+
+    border-left-color:
+        var(--green);
+
+    background:
+        rgba(71, 151, 92, .07);
+
+    transform:
+        translateX(4px);
+
+}
+
+
+.contact-code {
+
+    width:
+        33px;
+
+    flex-shrink:
+        0;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        16px;
+
+    color:
+        #45905a;
+
+}
+
+
+.contact-item small {
+
+    display:
+        block;
+
+    margin-bottom:
+        2px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        1.4px;
+
+    color:
+        #9aaa9d;
+
+}
+
+
+.contact-item span {
+
+    font-size:
+        16px;
+
+    color:
+        #506558;
+
+}
+
+
+
+/* ==================================================
+   左侧底部状态
+================================================== */
+
+.profile-bottom {
+
+    margin-top:
+        13px;
+
+    padding-top:
+        12px;
+
+    border-top:
+        1px solid
+        rgba(65, 142, 84, .12);
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        1px;
+
+    color:
+        #7f9785;
+
+}
+
+
+.profile-bottom div {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+}
+
+
+.profile-bottom b {
+
+    color:
+        #408e54;
+
+    font-weight:
+        500;
+
+}
+
+
+.blink {
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    border-radius:
+        50%;
+
+    background:
+        #439c59;
+
+    animation:
+        blink 1s infinite;
+
+}
+
+
+@keyframes blink {
+
+    50% {
+
+        opacity:
+            .25;
+
+    }
+
+}
+
+
+
+/* ==================================================
+   右侧主体
+================================================== */
+
+main {
+
+    min-width:
+        0;
+
+    padding:
+        25px 34px 32px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(255, 255, 255, .62);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+
+        0 18px 48px
+        rgba(42, 87, 52, .08);
+
+}
+
+
+
+/* ==================================================
+   Section
+================================================== */
+
+section {
+
+    margin-bottom:
+        38px;
+
+}
+
+
+section:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+
+
+/* ==================================================
+   Section Header
+================================================== */
+
+.section-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    min-height:
+        72px;
+
+    margin-bottom:
+        18px;
+
+    padding-bottom:
+        10px;
+
+    position:
+        relative;
+
+    border-bottom:
+        1px solid
+        rgba(58, 137, 78, .17);
+
+}
+
+
+
+/* ==================================================
+   01 / 02 / 03 大编号
+================================================== */
+
+.section-number {
+
+    width:
+        94px;
+
+    flex-shrink:
+        0;
+
+    position:
+        relative;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        48px;
+
+    line-height:
+        1;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        -2px;
+
+    color:
+        #41935a;
+
+}
+
+
+.section-number::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    right:
+        14px;
+
+    width:
+        20px;
+
+    height:
+        2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #4b9b60,
+            transparent
+        );
+
+}
+
+
+
+/* ==================================================
+   Section 名称
+================================================== */
+
+.section-name {
+
+    flex:
+        1;
+
+}
+
+
+.section-name > span {
+
+    display:
+        block;
+
+    margin-bottom:
+        2px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        2.2px;
+
+    color:
+        #86a28d;
+
+}
+
+
+.section-name h2 {
+
+    font-size:
+        36px;
+
+    line-height:
+        1.25;
+
+    font-weight:
+        600;
+
+    color:
+        #205637;
+
+    letter-spacing:
+        .4px;
+
+}
+
+
+
+/* ==================================================
+   右侧动态信号
+================================================== */
+
+.signal {
+
+    width:
+        70px;
+
+    height:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        5px;
+
+}
+
+
+.signal i {
+
+    width:
+        4px;
+
+    height:
+        9px;
+
+    border-radius:
+        3px;
+
+    background:
+        #5ca36d;
+
+    animation:
+
+        wave
+        .9s ease-in-out infinite alternate;
+
+}
+
+
+.signal i:nth-child(2) {
+
+    animation-delay:
+        .10s;
+
+}
+
+
+.signal i:nth-child(3) {
+
+    animation-delay:
+        .20s;
+
+}
+
+
+.signal i:nth-child(4) {
+
+    animation-delay:
+        .30s;
+
+}
+
+
+.signal i:nth-child(5) {
+
+    animation-delay:
+        .40s;
+
+}
+
+
+@keyframes wave {
+
+    to {
+
+        height:
+            27px;
+
+        opacity:
+            .42;
+
+    }
+
+}
+
+
+
+/* ==================================================
+   页面内容进入
+================================================== */
+
+.reveal {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+
+        opacity .7s ease,
+
+        transform .7s
+        cubic-bezier(.22, 1, .36, 1);
+
+}
+
+
+.reveal.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+
+/* ==================================================
+   教育时间轴
+================================================== */
+
+.timeline {
+
+    padding-left:
+        52px;
+
+    position:
+        relative;
+
+}
+
+
+.timeline-track,
+.timeline-flow {
+
+    position:
+        absolute;
+
+    left:
+        12px;
+
+    top:
+        10px;
+
+    bottom:
+        10px;
+
+    width:
+        3px;
+
+}
+
+
+.timeline-track {
+
+    background:
+        rgba(66, 145, 86, .13);
+
+}
+
+
+.timeline-flow {
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #3a9556,
+            #8bc098
+        );
+
+    transform:
+        scaleY(0);
+
+    transform-origin:
+        top;
+
+    transition:
+
+        transform
+        1.4s
+        cubic-bezier(.22, 1, .36, 1);
+
+}
+
+
+.timeline.active
+.timeline-flow {
+
+    transform:
+        scaleY(1);
+
+}
+
+
+
+/* ==================================================
+   教育节点
+================================================== */
+
+.edu-item {
+
+    position:
+        relative;
+
+    margin-bottom:
+        13px;
+
+    opacity:
+        0;
+
+    transform:
+        translateX(-16px);
+
+    transition:
+        opacity .55s ease,
+        transform .55s ease;
+
+}
+
+
+.edu-item:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+
+.timeline.active
+.edu-item {
+
+    opacity:
+        1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+.timeline.active
+.edu-item:nth-child(4) {
+
+    transition-delay:
+        .35s;
+
+}
+
+
+
+/* 菱形科技节点 */
+
+.edu-node {
+
+    position:
+        absolute;
+
+    left:
+        -48px;
+
+    top:
+        25px;
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    border:
+        2px solid
+        #47975b;
+
+    background:
+        #f8fcf7;
+
+    transform:
+        rotate(45deg);
+
+    z-index:
+        3;
+
+}
+
+
+.edu-node span {
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    background:
+        #429558;
+
+    animation:
+
+        eduPulse
+        1.5s infinite;
+
+}
+
+
+@keyframes eduPulse {
+
+    50% {
+
+        transform:
+            scale(1.7);
+
+        opacity:
+            .4;
+
+    }
+
+}
+
+
+
+/* ==================================================
+   教育卡片
+================================================== */
+
+.edu-card {
+
+    min-height:
+        auto;
+
+    padding:
+        15px 21px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(59, 138, 78, .18);
+
+    background:
+
+        linear-gradient(
+            110deg,
+            rgba(255,255,255,.84),
+            rgba(241,249,240,.66)
+        );
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.edu-card:hover {
+
+    transform:
+        translateX(5px);
+
+    border-color:
+        rgba(48, 136, 72, .38);
+
+    box-shadow:
+
+        0 11px 26px
+        rgba(42, 94, 54, .07);
+
+}
+
+
+
+/* 卡片右上科技角 */
+
+.card-corner {
+
+    position:
+        absolute;
+
+    right:
+        8px;
+
+    top:
+        8px;
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+    border-top:
+        2px solid
+        rgba(52, 139, 75, .4);
+
+    border-right:
+        2px solid
+        rgba(52, 139, 75, .4);
+
+}
+
+
+
+/* ==================================================
+   教育卡片文字
+================================================== */
+
+.edu-top {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+}
+
+
+.edu-top h3 {
+
+    font-family:
+        Consolas,
+        "Microsoft YaHei",
+        sans-serif;
+
+    font-size:
+        20px;
+
+    color:
+        #408556;
+
+}
+
+
+.edu-tag {
+
+    padding:
+        5px 9px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        1.3px;
+
+    color:
+        #518f61;
+
+    border:
+        1px solid
+        rgba(57, 142, 81, .17);
+
+    background:
+        rgba(62, 148, 86, .06);
+
+}
+
+
+.school {
+
+    margin-top:
+        7px;
+
+    font-size:
+        24px;
+
+    font-weight:
+        600;
+
+    color:
+        #314f3b;
+
+}
+
+
+.edu-card p {
+
+    margin-top:
+        4px;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.55;
+
+    color:
+        #6b7f70;
+
+}
+
+
+
+/* ==================================================
+   教育卡片底部数据流
+================================================== */
+
+.data-line {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        0;
+
+    width:
+        100%;
+
+    height:
+        2px;
+
+    overflow:
+        hidden;
+
+    background:
+        rgba(63, 143, 84, .08);
+
+}
+
+
+.data-line span {
+
+    display:
+        block;
+
+    position:
+        absolute;
+
+    width:
+        120px;
+
+    height:
+        100%;
+
+    left:
+        -120px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #4aa061,
+            transparent
+        );
+
+    animation:
+
+        lineData
+        3s linear infinite;
+
+}
+
+
+@keyframes lineData {
+
+    to {
+
+        left:
+            100%;
+
+    }
+
+}
+
+
+
+/* ==================================================
+   项目区域
+================================================== */
+
+.projects {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+
+}
+
+
+.project {
+
+    --mouse-x:
+        50%;
+
+    --mouse-y:
+        50%;
+
+    min-height:
+        auto;
+
+    padding:
+        15px 21px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        58px 1fr 34px;
+
+    gap:
+        15px;
+
+    align-items:
+        center;
+
+    border:
+        1px solid
+        rgba(55, 137, 77, .18);
+
+    background:
+
+        linear-gradient(
+            110deg,
+            rgba(255,255,255,.82),
+            rgba(240,248,239,.64)
+        );
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+
+/* 项目左侧科技线 */
+
+.project::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        3px;
+
+    height:
+        0;
+
+    background:
+
+        linear-gradient(
+            #389652,
+            #9bc4a3
+        );
+
+    transition:
+        height .4s ease;
+
+}
+
+
+.project:hover::before {
+
+    height:
+        100%;
+
+}
+
+
+.project:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(47, 135, 69, .40);
+
+    box-shadow:
+
+        0 13px 30px
+        rgba(42, 95, 54, .08);
+
+}
+
+
+
+/* ==================================================
+   鼠标局部科技光场
+================================================== */
+
+.mouse-light {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    background:
+
+        radial-gradient(
+            230px circle
+            at var(--mouse-x)
+            var(--mouse-y),
+
+            rgba(74, 158, 96, .13),
+
+            transparent 62%
+        );
+
+    transition:
+        opacity .25s ease;
+
+}
+
+
+.project:hover
+.mouse-light {
+
+    opacity:
+        1;
+
+}
+
+
+
+/* ==================================================
+   项目编号
+================================================== */
+
+.project-index {
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        24px;
+
+    color:
+        #3f9256;
+
+    border:
+        1px solid
+        rgba(58, 142, 80, .20);
+
+    background:
+        rgba(69, 151, 91, .06);
+
+}
+
+
+.project-main {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+}
+
+
+
+/* ==================================================
+   项目元信息
+================================================== */
+
+.project-meta {
+
+    margin-bottom:
+        3px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+}
+
+
+.project-meta span,
+.project-meta b {
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        1.3px;
+
+}
+
+
+.project-meta span {
+
+    color:
+        #8da293;
+
+}
+
+
+.project-meta b {
+
+    color:
+        #4b9560;
+
+    font-weight:
+        500;
+
+}
+
+
+
+/* ==================================================
+   项目文字
+================================================== */
+
+.project h3 {
+
+    font-size:
+        23px;
+
+    line-height:
+        1.45;
+
+    font-weight:
+        600;
+
+    color:
+        #28663f;
+
+}
+
+
+.project p {
+
+    margin-top:
+        3px;
+
+    font-size:
+        18px;
+
+    line-height:
+        1.5;
+
+    color:
+        #718075;
+
+}
+
+
+
+/* 项目箭头 */
+
+.project-arrow {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    font-size:
+        27px;
+
+    color:
+        #72a17e;
+
+    transition:
+        transform .25s ease,
+        color .25s ease;
+
+}
+
+
+.project:hover
+.project-arrow {
+
+    transform:
+        translate(4px, -4px);
+
+    color:
+        #398d53;
+
+}
+
+
+
+/* ==================================================
+   项目动态数据线
+================================================== */
+
+.project-progress {
+
+    margin-top:
+        8px;
+
+    width:
+        100%;
+
+    height:
+        2px;
+
+    background:
+        rgba(63, 143, 84, .08);
+
+    overflow:
+        hidden;
+
+}
+
+
+.project-progress span {
+
+    display:
+        block;
+
+    width:
+        38%;
+
+    height:
+        100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #4b9f62,
+            transparent
+        );
+
+    animation:
+
+        projectData
+        2.8s linear infinite;
+
+}
+
+
+@keyframes projectData {
+
+    from {
+
+        transform:
+            translateX(-120%);
+
+    }
+
+
+    to {
+
+        transform:
+            translateX(350%);
+
+    }
+
+}
+
+
+
+/* ==================================================
+   荣誉区域
+================================================== */
+
+.award {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        8px;
+
+}
+
+
+.award p {
+
+    min-height:
+        62px;
+
+    padding:
+        10px 15px;
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(57, 137, 78, .14);
+
+    background:
+        rgba(255, 255, 255, .61);
+
+    font-size:
+        18px;
+
+    line-height:
+        1.5;
+
+    color:
+        #566a5c;
+
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        background .28s ease;
+
+}
+
+
+
+/* 右下科技角 */
+
+.award p::after {
+
+    content: "";
+
+    position:
+        absolute;
+
+    right:
+        0;
+
+    bottom:
+        0;
+
+    width:
+        20px;
+
+    height:
+        20px;
+
+    border-right:
+        2px solid
+        transparent;
+
+    border-bottom:
+        2px solid
+        transparent;
+
+    transition:
+        border-color .25s ease;
+
+}
+
+
+.award p:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(51, 138, 75, .34);
+
+    background:
+        rgba(255, 255, 255, .87);
+
+}
+
+
+.award p:hover::after {
+
+    border-color:
+        rgba(55, 145, 79, .5);
+
+}
+
+
+
+/* 荣誉编号 */
+
+.award b {
+
+    min-width:
+        38px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        20px;
+
+    font-weight:
+        500;
+
+    color:
+        #438e58;
+
+}
+
+
+
+/* ==================================================
+   大屏
+================================================== */
+
+@media(min-width:1600px) {
+
+    .page {
+
+        max-width:
+            1560px;
+
+    }
+
+}
+
+
+
+/* ==================================================
+   平板
+================================================== */
+
+@media(max-width:1050px) {
+
+    .page {
+
+        grid-template-columns:
+            260px 1fr;
+
+        gap:
+            15px;
+
+    }
+
+
+    .profile {
+
+        padding:
+            22px 17px;
+
+    }
+
+
+    main {
+
+        padding:
+            22px 24px 28px;
+
+    }
+
+
+    section {
+
+        margin-bottom:
+            32px;
+
+    }
+
+
+    .section-number {
+
+        width:
+            82px;
+
+        font-size:
+            41px;
+
+    }
+
+
+    .section-name h2 {
+
+        font-size:
+            32px;
+
+    }
+
+
+    .edu-card {
+
+        padding:
+            14px 18px;
+
+    }
+
+
+    .project {
+
+        padding:
+            14px 17px;
+
+    }
+
+
+    .award {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+
+/* ==================================================
+   手机端
+================================================== */
+
+@media(max-width:760px) {
+
+    .page {
+
+        width:
+            calc(100% - 16px);
+
+        display:
+            block;
+
+        margin:
+            7px auto 20px;
+
+    }
+
+
+    .profile {
+
+        position:
+            relative;
+
+        top:
+            0;
+
+        min-height:
+            auto;
+
+        margin-bottom:
+            12px;
+
+        padding:
+            22px 18px;
+
+    }
+
+
+    main {
+
+        padding:
+            19px 15px 24px;
+
+    }
+
+
+    section {
+
+        margin-bottom:
+            32px;
+
+    }
+
+
+    .section-header {
+
+        min-height:
+            65px;
+
+        margin-bottom:
+            14px;
+
+        padding-bottom:
+            8px;
+
+    }
+
+
+    .section-number {
+
+        width:
+            70px;
+
+        font-size:
+            36px;
+
+    }
+
+
+    .section-number::after {
+
+        display:
+            none;
+
+    }
+
+
+    .section-name h2 {
+
+        font-size:
+            29px;
+
+    }
+
+
+    .section-name > span {
+
+        font-size:
+            10px;
+
+    }
+
+
+    .signal {
+
+        display:
+            none;
+
+    }
+
+
+    .timeline {
+
+        padding-left:
+            46px;
+
+    }
+
+
+    .timeline-track,
+    .timeline-flow {
+
+        left:
+            9px;
+
+    }
+
+
+    .edu-node {
+
+        left:
+            -44px;
+
+        top:
+            24px;
+
+    }
+
+
+    .edu-card {
+
+        padding:
+            15px 17px;
+
+    }
+
+
+    .school {
+
+        font-size:
+            21px;
+
+    }
+
+
+    .edu-card p {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .project {
+
+        grid-template-columns:
+            48px 1fr;
+
+        padding:
+            14px;
+
+    }
+
+
+    .project-index {
+
+        width:
+            45px;
+
+        height:
+            45px;
+
+        font-size:
+            20px;
+
+    }
+
+
+    .project h3 {
+
+        font-size:
+            19px;
+
+    }
+
+
+    .project p {
+
+        font-size:
+            16px;
+
+    }
+
+
+    .project-arrow {
+
+        display:
+            none;
+
+    }
+
+
+    .project-meta b {
+
+        display:
+            none;
+
+    }
+
+
+    .award {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .award p {
+
+        min-height:
+            auto;
+
+        padding:
+            10px 13px;
+
+        font-size:
+            16px;
+
+    }
+
+}
+
+
+
+/* ==================================================
+   减少动画模式
+================================================== */
+
+@media(prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+
+    }
+
+
+    .reveal,
+    .edu-item {
+
+        opacity:
+            1;
+
+        transform:
+            none;
+
+    }
+
+
+    .timeline-flow {
+
+        transform:
+            scaleY(1);
+
+    }
+
+}
